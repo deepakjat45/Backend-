@@ -38,19 +38,19 @@ app.get("/", (req, res)=>{
 //     res.send("You contacted mango path");
 // });
 
-// // not exist path par jane par error batane ke liye
-// app.use((req, res)=>{
-//     res.status(404).send("This path does not exist"); //chatgpt se likah 
-// });
+// not exist path par jane par error batane ke liye
+app.use((req, res)=>{
+    res.status(404).send("This path does not exist"); //chatgpt se likah 
+});
 
 
 
 
-// //app.post  //to send post request and response
-// //pahle hoppscotch me post request select kare tab display hoga
-// app.post("/",(req, res)=>{
-//     res.send("you send post request");
-// });
+//app.post  //to send post request and response
+//pahle hoppscotch me post request select kare tab display hoga
+app.post("/",(req, res)=>{
+    res.send("you send post request");
+});
 
 
 
@@ -60,15 +60,15 @@ app.get("/", (req, res)=>{
 
 
 
-// //path parameters // to change routs based on search parameters
-// app.get("/:username/:id", (req, res)=>{
-//     // console.log(req.params);
-//     // res.send("Hello i am root");
-//     let {username, id}  = req.params;
-//     // res.send(`wellcome to the username @${username}, and id #${id}`);
-//     let htmlStr = `<h1>wellcome to the username @${username}, and id #${id}<h1>`; //in html code
-//     res.send(htmlStr);
-// });
+//path parameters // to change routs based on search parameters
+app.get("/:username/:id", (req, res)=>{
+    // console.log(req.params);
+    // res.send("Hello i am root");
+    let {username, id}  = req.params;
+    // res.send(`wellcome to the username @${username}, and id #${id}`);
+    let htmlStr = `<h1>wellcome to the username @${username}, and id #${id}<h1>`; //in html code
+    res.send(htmlStr);
+});
 
 
 
