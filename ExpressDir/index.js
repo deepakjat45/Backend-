@@ -13,6 +13,7 @@ app.listen(port, () => { // start a sever and listen request
 });
 
 
+
 // //app.use
 // app.use((req, res)=>{
 //     // console.log(req);
@@ -24,6 +25,7 @@ app.listen(port, () => { // start a sever and listen request
 //     // }); 
 //     res.send("<h1>Hello Heare is some Fruits<h1><ul>Fruits<ul><li>apple<li>mango<li>banana<li>orange");
 // });
+
 
 
 
