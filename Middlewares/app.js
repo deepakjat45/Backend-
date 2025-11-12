@@ -63,21 +63,30 @@ app.get("/", (req, res) => {
 //day 44
 // Errors
 
-//error handling middleware
-app.use("/err", (req, res)=>{ //error page
-  abc = abc;
-});
-app.use((err, req, res, next)=>{ //error handling
-  let {status, message} = err;
-  res.status(status).send(message);
-  // next(err); // to next error handling middleware
-});
+// //error handling middleware
+// app.use("/err", (req, res)=>{ //error page
+//   abc = abc;
+// });
+
+// app.use((err, req, res, next)=>{ //error handling
+//   let {status = 500, message = "Some Error Occurred"} = err;
+//   res.status(status).send(message);
+//   // next(err); // to next error handling middleware
+// });
 
 // app.use((err, req, res, next)=>{ //error handling
 //   console.log("----ERROR2----");
 //   next(err); // to next error handling middleware //in this case express's error handling midd. 
 // });
 // //error hamdling middleware me callback me err 
+
+
+// Activity 
+app.get("/admin", (req, res)=>{
+  throw new ExpressError(403, "access to admin is forbidden");
+});
+
+
 
  
 app.use((req, res)=>{
