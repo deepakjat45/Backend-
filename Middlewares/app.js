@@ -28,7 +28,7 @@ const ExpressError = require("./ExpressError");
 // });
 
 
-// what app.use can do:- (path and callback) 
+// what app.use can do:- (path and callback) it also work without path 
 app.use("/random", (req, res, next)=>{
     console.log("hello, this is random");
     next();
@@ -41,7 +41,7 @@ const checkTocken = (req, res, next)=>{
   if(tocken === "giveaccess"){ 
     next();
   }else{
-    throw new ExpressError("ACCESS DENIED!");
+    throw new ExpressError(404, "ACCESS DENIED!");
   }
 };
 
@@ -59,19 +59,25 @@ app.get("/", (req, res) => {
 });
 
 
+
+//day 44
+// Errors
+
 //error handling middleware
 app.use("/err", (req, res)=>{ //error page
   abc = abc;
 });
 app.use((err, req, res, next)=>{ //error handling
-  console.log("----ERROR----");
-  next(err); // to next error handling middleware
+  let {status, message} = err;
+  res.status(status).send(message);
+  // next(err); // to next error handling middleware
 });
 
-app.use((err, req, res, next)=>{ //error handling
-  console.log("----ERROR2----");
-  next(err); // to next error handling middleware //in this case express's error handling midd. 
-});
+// app.use((err, req, res, next)=>{ //error handling
+//   console.log("----ERROR2----");
+//   next(err); // to next error handling middleware //in this case express's error handling midd. 
+// });
+// //error hamdling middleware me callback me err 
 
  
 app.use((req, res)=>{
