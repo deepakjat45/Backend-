@@ -1,19 +1,15 @@
 //OOPS //we use oops to structure our code
 
-
-
 // // object prototypess
 // let arr = [1, 2, 3];
 // arr.sayhello = () => {
 //   console.log("hello i am arr");
 // };
+
 // // accessing prototype 
 // console.log(arr.__proto__);
 // console.log(Array.prototype);
 // console.log(String.prototype);
-
-
-
 
 // //factory function
 // function persomMaker(name, age) {

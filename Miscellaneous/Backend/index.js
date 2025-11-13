@@ -1,7 +1,10 @@
+//GET vs POST request 
+
 const express = require("express");
 const app = express();
 const port = 8080;
 
+//post request code 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
