@@ -13,14 +13,14 @@ async function main() {
   await mongoose.connect("mongodb://127.0.0.1:27017/test");
 }
 
-//make Schema for users collection
+//make Schema for documents in mongo
 const userSchema = new mongoose.Schema({
   name: String,
   email: String,
   age: Number,
 });
 
-//model:- to make document in momgoose
+//model:- to make collection in momgoose
 //generlly collection ke name ko hi model ka name dete he
 const User = mongoose.model("User", userSchema);
 
@@ -49,16 +49,16 @@ const User = mongoose.model("User", userSchema);
 //     console.log(err);
 //   });
 
-// // insert many:-
+// insert many:-
 
-// User.insertMany([
-//     {name: "rahul", email: "rahul@gmail.com", age: 43},
-//     {name: "pavan", email: "pavan@gmail.com", age: 26},
-//     {name: "kavya", email: "kavya@gmail.com", age: 34},
-//     {name: "deepak", email: "deepak@gmail.com", age: 22},
-// ]).then((res)=>{
-//     console.log(res);
-// });
+User.insertMany([
+    {name: "rahul", email: "rahul@gmail.com", age: 43},
+    {name: "pavan", email: "pavan@gmail.com", age: 26},
+    {name: "kavya", email: "kavya@gmail.com", age: 34},
+    {name: "deepak", email: "deepak@gmail.com", age: 22},
+]).then((res)=>{
+    console.log(res);
+});
 
 
 
@@ -86,7 +86,6 @@ const User = mongoose.model("User", userSchema);
 // // find by id //ye sabse jyada use hota he
 // User.findById('68ffb3ab64974e9d61c90caa')
 //   .then((res) => {
-//     // console.log(res);
 //     console.log(res);
 //   })
 //   .catch((err) => {
@@ -125,26 +124,22 @@ const User = mongoose.model("User", userSchema);
 //   });
 
 
-// Delete in DB
+// // Delete in DB
 
-//delete one 
-User.deleteOne({ name: "pavan" })  
-  .then((res) => {
-    console.log(res);
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+// //delete one 
+// User.deleteOne({ name: "pavan" })  
+//   .then((res) => {
+//     console.log(res);
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
 
-//delete many 
-User.deleteMany({ age: 25 })  
-  .then((res) => {
-    console.log(res);
-  })
-  .catch((err) => {
-    console.log(err);
-  });
-
-// there is also findByIdAndDelete() and findOneAndDelete()
-
-
+// //delete many 
+// User.deleteMany({ age: 25 })  
+//   .then((res) => {
+//     console.log(res);
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });

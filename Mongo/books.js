@@ -15,8 +15,8 @@ async function main() {
 const bookSchema = new mongoose.Schema({
   title: {
     type: String,
-    required: true, 
-    maxLength: 30,  
+    required: true,
+    maxLength: 30,
   },
   auther: {
     type: String,
@@ -61,3 +61,14 @@ const Book = mongoose.model("Book", bookSchema);
 //     .then((res)=>{
 //     console.log(res)
 // });
+
+
+
+// there is also findByIdAndDelete() and findOneAndDelete() 
+Book.findByIdAndUpdate("68ffccb850d637e866934bdb", { price: 500 }, { runValidators: true })
+  .then((res) => {
+    console.log(res);
+  }).catch((err) => { console.log(err) });
+
+// update karte samye schema validaition by default check nahi hote hai
+// unhe check karne ke liye runValidators: true  karna padata hai

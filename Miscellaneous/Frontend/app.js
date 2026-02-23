@@ -33,6 +33,7 @@
 
 
 // //Constructors  -- does not return anything and start with Capital leter it's a rule (developer rule)
+
 // function Person(name, age){
 //     this.name = name;
 //     this.age = age;
