@@ -49,16 +49,16 @@ const User = mongoose.model("User", userSchema);
 //     console.log(err);
 //   });
 
-// insert many:-
+// // insert many:-
 
-User.insertMany([
-    {name: "rahul", email: "rahul@gmail.com", age: 43},
-    {name: "pavan", email: "pavan@gmail.com", age: 26},
-    {name: "kavya", email: "kavya@gmail.com", age: 34},
-    {name: "deepak", email: "deepak@gmail.com", age: 22},
-]).then((res)=>{
-    console.log(res);
-});
+// User.insertMany([
+//     {name: "rahul", email: "rahul@gmail.com", age: 43},
+//     {name: "pavan", email: "pavan@gmail.com", age: 26},
+//     {name: "kavya", email: "kavya@gmail.com", age: 34},
+//     {name: "deepak", email: "deepak@gmail.com", age: 22},
+// ]).then((res)=>{
+//     console.log(res);
+// });
 
 
 
