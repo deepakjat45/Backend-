@@ -8,8 +8,8 @@ const mongoose = require("mongoose");
 const Chat = require("./models/chat.js");
 
 // seting path
-app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extends: true })); //to parsh the req.body data
 
@@ -42,7 +42,7 @@ async function main() {
 // Index rout:-
 app.get("/chats", async (req, res) => {
   let chats = await Chat.find(); //to get all chats from database
-  console.log(chats);
+  // console.log(chats);
   res.render("index.ejs", { chats });
 });
 
@@ -81,6 +81,10 @@ app.post("/chats", (req, res) => {
 //home route
 app.get("/", (req, res) => {
   res.send("root is working");
+});
+
+app.use("", (req, res)=>{
+  res.send("page not Exist");
 });
 
 //server runing
