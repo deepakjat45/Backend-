@@ -124,16 +124,16 @@ const User = mongoose.model("User", userSchema);
 //   });
 
 
-// // Delete in DB
+// Delete in DB
 
-// //delete one 
-// User.deleteOne({ name: "pavan" })  
-//   .then((res) => {
-//     console.log(res);
-//   })
-//   .catch((err) => {
-//     console.log(err);
-//   });
+//delete one 
+User.deleteOne({ name: "pavan" })  
+  .then((res) => {
+    console.log(res);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
 // //delete many 
 // User.deleteMany({ age: 25 })  
