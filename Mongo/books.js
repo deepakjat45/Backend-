@@ -38,15 +38,15 @@ const bookSchema = new mongoose.Schema({
 
 const Book = mongoose.model("Book", bookSchema);
 
-// let book1 = new Book({
-//     // tital: "math",   // if we dont write the tital, it will give error because we difine tital to be require 
-//     auther: "rd shrma",
-//     price: 450,
-// });
+let book1 = new Book({
+    // tital: "math",   // if we dont write the tital, it will give error because we difine tital to be require 
+    auther: "rd shrma",
+    price: 450,
+});
 
-// book1.save().then((res)=>{
-//     console.log(res);
-// });
+book1.save().then((res)=>{
+    console.log(res);
+});
 
 
 // let book2 = new Book({
@@ -64,11 +64,11 @@ const Book = mongoose.model("Book", bookSchema);
 
 
 
-// // there is also findByIdAndDelete() and findOneAndDelete() 
-// Book.findByIdAndUpdate("68ffccb850d637e866934bdb", { price: 500 }, { runValidators: true })
-//   .then((res) => {
-//     console.log(res);
-//   }).catch((err) => { console.log(err) });
+// there is also findByIdAndDelete() and findOneAndDelete() 
+Book.findByIdAndUpdate("68ffccb850d637e866934bdb", { price: 500 }, { runValidators: true })
+  .then((res) => {
+    console.log(res);
+  }).catch((err) => { console.log(err) });
 
-// // update karte samye schema validaition by default check nahi hote hai
-// // unhe check karne ke liye runValidators: true  karna padata hai
+// update karte samye schema validaition by default check nahi hote hai
+// unhe check karne ke liye runValidators: true  karna padata hai
