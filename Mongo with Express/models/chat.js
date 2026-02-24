@@ -15,7 +15,8 @@
     },
     created_at: {
         type: Date,
-        required: true   
+        required: true,
+        default: Date.now,  
     },
  });
 
