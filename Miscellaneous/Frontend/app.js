@@ -44,7 +44,7 @@
 
 // let p1 = new Person("raj", 22);
 // console.log(p1.talk());
-// let p2 = new Person("deep", 28);
+// let p2 = new Person("deep", 23);
 
 
 
@@ -86,7 +86,7 @@ class Stuednt extends Person { //extends keyword use karte he parent class ke co
 
 class Teacher extends Person {
     constructor(name, age, subject) {
-        super(name, age);
+        super(name, age,this.talk);
         this.subject = subject;
     }
 }
@@ -94,4 +94,4 @@ class Teacher extends Person {
 let stu1 = new Stuednt("mohit", 21, 84);
 console.log(stu1);
 let t1 = new Teacher("ram kumar", 33, "math");
-console.log(t1);
+console.log(t1.talk());

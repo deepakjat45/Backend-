@@ -35,56 +35,57 @@ const ExpressError = require("./ExpressError");
 // });
 
 
-// // Activity
-// const checkTocken = (req, res, next)=>{
-//   let {tocken} = req.query;
-//   if(tocken === "giveaccess"){ 
-//     next();
-//   }else{
-//     throw new ExpressError(404, "ACCESS DENIED!");
-//   }
-// };
+// Activity
+const checkTocken = (req, res, next)=>{
+  let {tocken} = req.query;
+  if(tocken === "giveaccess"){ 
+    next();
+  }else{
+    throw new ExpressError(404, "ACCESS DENIED!");
+  }
+};
 
-// app.get("/api", checkTocken, (req, res)=>{
-//   res.send("Data");
-// });
-
-
-// app.get("/random", (req, res) => {
-//   res.send("hello this is a random page");
-// });
-
-// app.get("/", (req, res) => {
-//   res.send("hello");
-// });
+app.get("/api", checkTocken, (req, res)=>{
+  res.send("Data");
+});
 
 
+app.get("/random", (req, res) => {
+  res.send("hello this is a random page");
+});
 
-// //day 44
-// // Errors
-
-// // //error handling middleware
-// // app.use("/err", (req, res)=>{ //error page
-// //   abc = abc;
-// // });
-
-// // app.use((err, req, res, next)=>{ //error handling
-// //   let {status = 500, message = "Some Error Occurred"} = err;
-// //   res.status(status).send(message);
-// //   // next(err); // to next error handling middleware
-// // });
-
-// // app.use((err, req, res, next)=>{ //error handling
-// //   console.log("----ERROR2----");
-// //   next(err); // to next error handling middleware //in this case express's error handling midd. 
-// // });
-// // //error hamdling middleware me callback me err 
+app.get("/", (req, res) => {
+  res.send("hello this is root page");
+});
 
 
-// // Activity 
-// app.get("/admin", (req, res)=>{
-//   throw new ExpressError(403, "access to admin is forbidden");
-// });
+
+
+// day 44
+// Errors
+
+//error handling middleware
+app.use("/err", (req, res)=>{ //error page
+  abc = abc;
+});
+
+app.use((err, req, res, next)=>{ //error handling
+  let {status = 500, message = "Some Error Occurred"} = err;
+  res.status(status).send(message);
+  next(err); // to next error handling middleware
+});
+
+app.use((err, req, res, next)=>{ //error handling
+  console.log("----ERROR2----");
+  next(err); // to next error handling middleware //in this case express's error handling midd. 
+});
+//error handling middleware me callback me err 
+
+
+// Activity 
+app.get("/admin", (req, res)=>{
+  throw new ExpressError(403, "access to admin is forbidden");
+});
 
 
 
@@ -93,6 +94,6 @@ app.use((req, res)=>{
   res.status(404).send("Page not found"); 
 });
 
-app.listen(8080, ()=>{
+app.listen(8080, ()=>{ 
   console.log("app is listining on port 8080");
 });
