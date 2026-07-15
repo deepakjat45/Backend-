@@ -3,33 +3,33 @@
 const express = require('express'); 
 const app = express();
 
-const path = require("path");
+const path = require("path"); 
 
 const port = 8080;
 
 app.set("view engine", "ejs");
-app.set("views", path.join(__dirname, "/views"));
+app.set("views", path.join(__dirname, "/views")); 
 
 
 app.get("/", (req, res) => {
-    res.render("home.ejs");
+    res.render("home.ejs"); 
 });
 
-app.get("/hello", (req, res) => {
+app.get("/hello", (req, res) => { 
     res.send("hello");
 });
-
+ 
 //rolldice
 app.get("/rolldice", (req, res) => {
     let diceValue = Math.floor(Math.random() * 6) + 1;
-    // res.render("rolldice.ejs", {diceValue : diceValue});
+    // res.render("rolldice.ejs", {diceValue : diceValue}); 
     //or 
-    res.render("rolldice.ejs", { diceValue });
+    res.render("rolldice.ejs", { diceValue }); 
 });
-
+ 
 
 // //activity //instagram ejs use
-// app.get("/ig/:username", (req, res) => {
+// app.get("/ig/:username", (req, res) => { 
 //     let = { username } = req.params;
 //     // loops in EJS 
 //     const followers = ["hello", "raj", "maya", "adam", "deepak"];
