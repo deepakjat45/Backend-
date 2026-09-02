@@ -9,6 +9,8 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
 
+
+
 app.get("/register", (req, res) => {   // http://localhost:8080/register?user="deepak"&password="123" 
     let { user, password } = req.query;
     res.send(`Standered Get response wellcome ${user}!, your password is ${password}`);
