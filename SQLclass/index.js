@@ -114,7 +114,7 @@ app.patch("/user/:id", (req, res) => {
         let q2 = `update user set username='${newUsername}' where id='${id}'`;
         connection.query(q2, (err, result) => {
           if (err) throw err;
-          res.redirect("/user");  
+          res.redirect("/user");
         });
       }
     });
@@ -125,13 +125,13 @@ app.patch("/user/:id", (req, res) => {
 });
 
 //create user button 
-app.get("/user/new", (req, res)=>{
+app.get("/user/new", (req, res) => {
   res.render("createUser.ejs");
 })
 
 
 //create user route:-
-app.post("/user/new", (req, res)=>{
+app.post("/user/new", (req, res) => {
   let { id, username, email, password } = req.body;
   let q = `INSERT INTO user (id, username, email, password) VALUES ('${id}', '${username}', '${email}', '${password}')`;
   try {
@@ -140,7 +140,7 @@ app.post("/user/new", (req, res)=>{
       res.redirect("/");
     });
   } catch (err) {
-    console.log(err); 
+    console.log(err);
     res.send("info exist, try anything else");
   }
 });

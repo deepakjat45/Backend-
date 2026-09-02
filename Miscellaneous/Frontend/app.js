@@ -73,7 +73,7 @@ class Person {
         this.age = age;
     }
     talk() {
-        console.log(`hii my name is ${thsi.name}`);
+        console.log(`hii my name is ${this.name}`);
     }
 }
 
@@ -86,7 +86,7 @@ class Stuednt extends Person { //extends keyword use karte he parent class ke co
 
 class Teacher extends Person {
     constructor(name, age, subject) {
-        super(name, age,this.talk);
+        super(name, age); 
         this.subject = subject;
     }
 }

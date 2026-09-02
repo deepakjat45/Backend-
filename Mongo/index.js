@@ -3,15 +3,15 @@
 const mongoose = require("mongoose"); //requir mongoose
 
 //code to make connection of monogDB with node
+async function main() {
+  await mongoose.connect("mongodb://127.0.0.1:27017/test");
+}
+
 main()
   .then(() => {
     console.log("connection sucessful");
   })
   .catch((err) => console.log(err));
-
-async function main() {
-  await mongoose.connect("mongodb://127.0.0.1:27017/test");
-}
 
 //make Schema for documents in mongo
 const userSchema = new mongoose.Schema({
@@ -20,9 +20,10 @@ const userSchema = new mongoose.Schema({
   age: Number,
 });
 
-//model:- to make collection in momgoose
+//model:- to make collection in mongoose
 //generlly collection ke name ko hi model ka name dete he
 const User = mongoose.model("User", userSchema);
+
 
 // // insert in DB
 // // insert one:-
@@ -83,8 +84,8 @@ const User = mongoose.model("User", userSchema);
 //     console.log(err);
 //   });
 
-// // find by id //ye sabse jyada use hota he
-// User.findById('68ffb3ab64974e9d61c90caa')
+// find by id //ye sabse jyada use hota he
+// User.findById('6a974acefed3f8b654b8d5ed')
 //   .then((res) => {
 //     console.log(res);
 //   })
@@ -115,9 +116,9 @@ const User = mongoose.model("User", userSchema);
 //   });
 
 // //find one and update
-// User.findOneAndUpdate({ name: "deepak" }, { age: 22 }) 
+// User.findOneAndUpdate({ name: "deepak" }, { age: 23 }) 
 //   .then((res) => {
-//     console.log(res);
+//     console.log(res); // will print the old one 
 //   })
 //   .catch((err) => {
 //     console.log(err);
@@ -126,17 +127,17 @@ const User = mongoose.model("User", userSchema);
 
 // Delete in DB
 
-//delete one 
-User.deleteOne({ name: "pavan" })  
-  .then((res) => {
-    console.log(res);
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+// //delete one 
+// User.deleteOne({ name: "pavan" })
+//   .then((res) => {
+//     console.log(res);
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
 
-// //delete many 
-// User.deleteMany({ age: 25 })  
+// //delete many
+// User.deleteMany({ age: 25 })
 //   .then((res) => {
 //     console.log(res);
 //   })

@@ -5,7 +5,7 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const mongoose = require("mongoose");
-const Chat = require("./models/chat.js");
+const Chat = require("./models/chat");
 
 // seting path
 app.set("view engine", "ejs");
@@ -16,7 +16,7 @@ app.use(express.urlencoded({ extends: true })); //to parsh the req.body data
 //mongoose code:
 main()
   .then(() => {
-    console.log("connection sucessful");
+    console.log("Database connection sucessful");
   })
   .catch((err) => console.log(err));
 

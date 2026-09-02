@@ -9,7 +9,7 @@ const app = express();
 let port = 3000; //or 8080 etc. 
 
 app.listen(port, () => { // start a sever and listen request
-    console.log(`app is listening on port ${port}`)
+    console.log(`app is listening on port ${port}`)  // http://localhost:3000/
 });
 
 
@@ -40,11 +40,6 @@ app.get("/", (req, res)=>{
 //     res.send("You contacted mango path");
 // });
 
-// not exist path par jane par error batane ke liye
-app.use((req, res)=>{
-    res.status(404).send("This path does not exist"); //chatgpt se likah 
-});
-
 
 
 
@@ -56,7 +51,8 @@ app.post("/",(req, res)=>{
 
 
 
-// //nodemon //server start/stop probleme ko solve karta he
+// //nodemon 
+//server start/stop probleme ko solve karta he
 //hamesha globaly install karte he 
 // bad me file run karte samye ye command likhe -->  nodemon <fileName>
 
@@ -89,3 +85,9 @@ app.get("/search", (req, res)=>{
 
 
 // ex. -->   http://localhost:3000/search?q=apple&color=red    <--ese hoppscotch pe send karo
+
+
+// not exist path par jane par error batane ke liye
+app.use((req, res)=>{
+    res.status(404).send("This path does not exist"); //chatgpt se likah 
+});

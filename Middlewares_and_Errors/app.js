@@ -36,16 +36,16 @@ const ExpressError = require("./ExpressError");
 
 
 // Activity
-const checkTocken = (req, res, next)=>{
-  let {tocken} = req.query;
-  if(tocken === "giveaccess"){ 
+const checkTocken = (req, res, next) => {
+  let { tocken } = req.query;
+  if (tocken === "access") {
     next();
-  }else{
-    throw new ExpressError(404, "ACCESS DENIED!");
+  } else {
+    throw new ExpressError(404, "ACCESS DENIED!, ");
   }
 };
 
-app.get("/api", checkTocken, (req, res)=>{
+app.get("/api", checkTocken, (req, res) => {
   res.send("Data");
 });
 
@@ -65,17 +65,17 @@ app.get("/", (req, res) => {
 // Errors
 
 //error handling middleware
-app.use("/err", (req, res)=>{ //error page
+app.use("/err", (req, res) => { //error page
   abc = abc;
 });
 
-app.use((err, req, res, next)=>{ //error handling
-  let {status = 500, message = "Some Error Occurred"} = err;
+app.use((err, req, res, next) => { //error handling
+  let { status = 500, message = "Some Error Occurred" } = err;
   res.status(status).send(message);
   next(err); // to next error handling middleware
 });
 
-app.use((err, req, res, next)=>{ //error handling
+app.use((err, req, res, next) => { //error handling
   console.log("----ERROR2----");
   next(err); // to next error handling middleware //in this case express's error handling midd. 
 });
@@ -83,17 +83,15 @@ app.use((err, req, res, next)=>{ //error handling
 
 
 // Activity 
-app.get("/admin", (req, res)=>{
+app.get("/admin", (req, res) => {
   throw new ExpressError(403, "access to admin is forbidden");
 });
 
 
-
- 
-app.use((req, res)=>{
-  res.status(404).send("Page not found"); 
+app.use((req, res) => {
+  res.status(404).send("Page not found");
 });
 
-app.listen(8080, ()=>{ 
+app.listen(8080, () => {
   console.log("app is listining on port 8080");
 });
