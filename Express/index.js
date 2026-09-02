@@ -1,7 +1,6 @@
 //express
 
 // express code:-
-
 const express = require('express');
 const app = express();
 // console.log(app);
@@ -25,7 +24,6 @@ app.listen(port, () => { // start a sever and listen request
 //     // }); 
 //     res.send("<h1>Hello Heare is some Fruits<h1><ul>Fruits<ul><li>apple<li>mango<li>banana<li>orange");
 // });
-
 
 
 
@@ -85,6 +83,7 @@ app.get("/search", (req, res)=>{
 
 
 // ex. -->   http://localhost:3000/search?q=apple&color=red    <--ese hoppscotch pe send karo
+
 
 
 // not exist path par jane par error batane ke liye
