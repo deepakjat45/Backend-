@@ -28,16 +28,16 @@ const ExpressError = require("./ExpressError");
 // });
 
 
-// // what app.use can do:- (path and callback) it also work without path 
-// app.use("/random", (req, res, next)=>{
-//     console.log("hello, this is random");
-//     next();
-// });
+// what app.use can do:- (path and callback) it also work without path 
+app.use("/random", (req, res, next) => {
+  console.log("hello, this is random");
+  next();
+});
 
 
 // Activity
 const checkTocken = (req, res, next) => {
-  let { tocken } = req.query;
+  let { tocken } = req.query;  // http://localhost:8080/api?tocken=access
   if (tocken === "access") {
     next();
   } else {
@@ -46,7 +46,7 @@ const checkTocken = (req, res, next) => {
 };
 
 app.get("/api", checkTocken, (req, res) => {
-  res.send("Data");
+  res.send("Here is your Data: ");
 });
 
 
@@ -57,8 +57,6 @@ app.get("/random", (req, res) => {
 app.get("/", (req, res) => {
   res.send("hello this is root page");
 });
-
-
 
 
 // day 44

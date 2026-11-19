@@ -32,26 +32,26 @@
 
 // //*** mene globle figlet ko vapas se uninstall kar diya tha dusara example dekhane ke liye to tum vapas se install karna 
 
-// const figlet = require('figlet');
+const figlet = require('figlet');
 
-// figlet.text(
-//   "Deepak Jat",
-//   {
-//     font: "Ghost",
-//     horizontalLayout: "default",
-//     verticalLayout: "default",
-//     width: 80,
-//     whitespaceBreak: true,
-//   },
-//   function (err, data) {
-//     if (err) {
-//       console.log("Something went wrong...");
-//       console.dir(err);
-//       return;
-//     }
-//     console.log(data);
-//   }
-// );
+figlet.text(
+  "Deepak Jat",
+  {
+    font: "Ghost",
+    horizontalLayout: "default",
+    verticalLayout: "default",
+    width: 80,
+    whitespaceBreak: true,
+  },
+  function (err, data) {
+    if (err) {
+      console.log("Something went wrong...");
+      console.dir(err);
+      return;
+    }
+    console.log(data);
+  }
+);
 
 
 

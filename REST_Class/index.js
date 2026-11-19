@@ -1,11 +1,15 @@
+//REST full Api
+
 const express = require("express");
 const app = express();
 let port = 8080;
 const path = require("path");
-const { v4: uuidv4 } = require("uuid");
-const methodOverride = require("method-override");
+const { v4: uuidv4 } = require("uuid"); //uuid 
 
-app.use(express.urlencoded({ extended: true }));
+
+// to use PUT PATCH and DELETE methot in html form we write these three line 
+const methodOverride = require("method-override"); 
+app.use(express.urlencoded({ extended: true })); // for post method data read 
 // app.use(express.json());
 app.use(methodOverride("_method"));
 

@@ -27,7 +27,7 @@ const figlet = require('figlet');
 
 
 figlet.text(
-  "Deepak Jat",
+  "Suraj",
   {
     font: "Ghost",
     horizontalLayout: "default",
