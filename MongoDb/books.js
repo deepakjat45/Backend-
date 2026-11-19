@@ -1,0 +1,84 @@
+const mongoose = require("mongoose"); //requir mongoose
+
+//code to make connection of monogDB with node
+// 
+async function main() {
+  await mongoose.connect("mongodb://127.0.0.1:27017/amazon");
+}
+
+main()
+  .then(() => {
+    console.log("connection sucessful");
+  })
+  .catch((err) => console.log(err));
+
+
+//difine schema with validations 
+const bookSchema = new mongoose.Schema({
+  title: {
+    type: String,
+    required: true,
+    maxLength: 30,
+  },
+  author: {
+    type: String,
+  },
+  price: {
+    type: Number,
+    min: [10, "price is to low for amazon selling"],  //set miniman value and display err if rule voilated 
+  },
+  discount: {
+    type: Number,
+    default: 0,
+  },
+  category: {
+    type: String,
+    enum: ["fiction", "non-fiction"],
+  },
+});
+
+
+const Book = mongoose.model("Book", bookSchema);
+
+let book1 = new Book({
+    title: "math",   // if we dont write the tital, it will give error because we difine tital to be require 
+    author: "rd shrma",
+    price: 450,
+});
+
+// book1.save().then((res)=>{
+//     console.log(res);
+// });
+
+
+let book2 = new Book({
+    title: " Philosophy",
+    author: "jagdish Bhai",
+    price: 200,
+    category: "non-fiction",
+    // price: '450', //will not give err because of its parseing value
+    // price: 'abc', //will give err because of its not parseing value
+});
+
+// book2.save()
+//     .then((res)=>{
+//     console.log(res)
+// });
+
+
+
+// // there is also findByIdAndDelete() and findOneAndDelete() 
+
+// Book.findByIdAndUpdate("6a975488d8ce80f169c2bb4e", { price: 501 }, { runValidators: true })
+//   .then((res) => {
+//     console.log(res);
+//   }).catch((err) => { console.log(err) });
+
+// update karte samye schema validaition by default check nahi hote hai
+// unhe check karne ke liye runValidators: true  karna padata hai
+
+
+Book.findByIdAndUpdate("6a975488d8ce80f169c2bb4e", { price: 600 }, { runValidators: true, new: true}) //new: true se updated document log hoga 
+  .then((res) => {
+    console.log(res);
+  }).catch((err) => { console.log(err) });
